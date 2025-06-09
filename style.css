@@ -118,19 +118,19 @@ header p {
    ========================= */
 .timeline {
   background-color: var(--intel-gray);
-  padding: 32px 20px 0 20px;
+  padding: 64px 0 0 0;         /* More top padding, no side padding for full width */
   width: 100%;
 }
 
 .timeline-cards {
   display: flex;
   flex-direction: row;
-  gap: var(--timeline-gap);
+  gap: 100px;                  /* More space between cards */
   overflow-x: auto;
   overflow-y: visible;
-  padding: 36px 0 var(--timeline-padding-bottom) 0;
+  padding: 64px 32px var(--timeline-padding-bottom) 32px; /* More padding inside */
   width: 100%;
-  max-width: var(--timeline-container-max-width);
+  max-width: 1400px;           /* Increase max width for more room */
   margin: 0 auto;
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -159,14 +159,14 @@ header p {
 
 /* Timeline card styles */
 .timeline-card {
-  min-width: var(--timeline-card-min-width);
-  max-width: var(--timeline-card-max-width);
+  min-width: 300px;
+  max-width: 340px;
   flex-shrink: 0;
   scroll-snap-align: start;
   position: relative;
   background-color: var(--intel-white);
   border-left: 4px solid var(--intel-light-blue);
-  padding: 18px 22px 22px 22px;
+  padding: 36px 28px 36px 28px;
   margin-bottom: 0;
   box-sizing: border-box;
   display: flex;
@@ -193,9 +193,9 @@ header p {
 }
 .timeline-card img {
   width: 100%;
-  max-width: var(--timeline-card-img-max-width);
+  max-width: 260px;
   display: block;
-  margin: 12px auto 16px auto;
+  margin: 20px auto 28px auto;
   border-radius: 8px;
   position: relative;
   z-index: 1;
@@ -211,12 +211,14 @@ header p {
   margin-top: 8px;
 }
 .timeline-card h3 {
-  font-size: 1.3em;
-  color: var(--intel-blue);
+  font-family: 'Roboto', Arial, sans-serif; /* Use header font */
+  font-size: 1.5em;                        /* Larger for visibility */
+  color: var(--intel-blue);                 /* Intel blue for emphasis */
   text-align: center;
   margin-top: 0;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
+  margin-bottom: 8px;
+  letter-spacing: 1.5px;
+  font-weight: bold;
 }
 
 /* Timeline details overlay */
@@ -233,16 +235,30 @@ header p {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s;
-  z-index: 2;
+  z-index: 20;
   text-align: center;
   overflow-y: auto;
   font-family: var(--font-main);
-  font-size: 1em;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 1.08em;
+  line-height: 1.7;
+  word-break: break-word;
+  max-height: 90%;
+  display: flex;                /* Use flexbox for easy centering */
+  flex-direction: column;       /* Stack content vertically */
+  justify-content: center;      /* Center content vertically */
+  align-items: center;          /* Center content horizontally */
+  text-align: center;           /* Center text */
 }
+
+/* On small screens, make sure the popout fits and is scrollable */
+@media (max-width: 700px) {
+  .timeline-details {
+    max-height: 70vh;
+    padding: 16px 8px;
+    font-size: 1em;
+  }
+}
+
 .timeline-card:hover .timeline-details,
 .timeline-card:focus-within .timeline-details {
   opacity: 1;
@@ -337,6 +353,25 @@ header p {
   background-color: #005fa3;
 }
 
+/* Center the typography in the last section (subscription form */
+
+/* Center the heading and form elements in the subscription section */
+.subscription-form,
+.subscription-form .form-label,
+.subscription-form .form-control,
+.subscription-form .btn-primary {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+/* Center the section heading above the form */
+section.container.my-5 h2 {
+  text-align: center;
+  width: 100%;
+}
+
 /* =========================
    BUTTON STYLES & EFFECTS
    ========================= */
@@ -362,7 +397,7 @@ footer {
   background-color: var(--intel-dark-blue);
   color: var(--intel-white);
   text-align: center;
-  padding: 12px 0;
+  padding: 24px 0;         /* Increased padding for more space */
   font-size: 1em;
   font-family: var(--font-main);
   border-top: none;
@@ -379,23 +414,24 @@ footer {
     padding: 0 10px;
   }
   .timeline-cards {
-    gap: 20px;
     max-width: 100%;
+    gap: 32px;
+    padding: 32px 8px var(--timeline-padding-bottom) 8px;
   }
   .timeline-card {
     min-width: 220px;
-    max-width: 240px;
-    padding: 12px 10px 16px 10px;
+    max-width: 100%;
+    padding: 16px 8px 20px 8px;
+    font-size: 1em;
+  }
+  .timeline-card img {
+    max-width: 100%;
+    margin: 12px auto 18px auto;
   }
 }
 
+/* Stack timeline cards vertically on small screens */
 @media (max-width: 700px) {
-  header {
-    padding: 28px var(--padding-small) 16px var(--padding-small);
-  }
-  .header-divider {
-    margin: 16px auto 0 auto;
-  }
   .timeline {
     padding: 12px 5px 0 5px;
   }
@@ -427,151 +463,249 @@ footer {
     justify-content: center;
     transform: none;
   }
+  /* Make the pillars stack vertically */
+  .container.my-5 .row {
+    flex-direction: column;
+  }
+  .container.my-5 .col-md-4 {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Responsive subscription form */
+@media (max-width: 600px) {
+  .subscription-form {
+    padding: 16px 4px;
+    max-width: 98vw;
+  }
+  .subscription-form .form-control {
+    font-size: 0.98em;
+  }
+}
+
+/* Responsive footer */
+@media (max-width: 600px) {
+  footer {
+    font-size: 0.95em;
+    padding: 10px 0;
+  }
 }
 
 /* =========================
-   SPACING & TYPOGRAPHY ENHANCEMENTS
+   RESPONSIVE STYLES FOR ALL DEVICES
    ========================= */
 
-/* Add more space between sections for clarity */
-section {
-  margin-bottom: 48px;
-}
-
-/* Improve heading appearance */
-h1, h2, h3, h4 {
-  font-family: var(--font-header);
-  font-weight: bold;
-  letter-spacing: 1.5px;
-  color: var(--intel-dark-blue);
-}
-
-/* Make main headings stand out */
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 18px;
-}
-
-h2 {
-  font-size: 2em;
-  margin-bottom: 18px;
-}
-
-h3 {
-  font-size: 1.3em;
-  margin-bottom: 12px;
-}
-
-h4 {
-  font-size: 1.1em;
-  margin-bottom: 10px;
-}
-
-/* Add space below paragraphs for readability */
-p, .card-text, .timeline-details p {
-  margin-bottom: 16px;
-  line-height: 1.7;
-  font-size: 1.08em;
-}
-
-/* Add more padding inside cards for a softer look */
-.card-body {
-  padding: 28px 20px 20px 20px;
-}
-
-/* Add space between icon and text in headings and buttons */
-.card-title i,
-.card-text i,
-.btn i {
-  margin-right: 8px;
-  vertical-align: middle;
-}
-
-/* Add more space between timeline cards on large screens */
-.timeline-cards {
-  gap: 64px;
-}
-
-/* Enhance modal typography for beginners */
-
-/* Make modal titles bold and larger */
-.modal-title {
-  font-family: 'Roboto', Arial, sans-serif; /* Use the header font */
-  font-size: 1.4em;                        /* Slightly larger for clarity */
-  font-weight: bold;
-  letter-spacing: 1px;
-  color: var(--intel-dark-blue);
-}
-
-/* Style modal body text for readability */
-.modal-body p {
-  font-family: 'Montserrat', Arial, sans-serif; /* Match main font */
-  font-size: 1.08em;
-  line-height: 1.7;
-  color: var(--intel-dark-blue);
-  margin-top: 12px;
-  margin-bottom: 0;
-  text-align: center;
-}
-
-/* Make modal icons stand out with extra space */
-.modal-body i {
+/* Make sure images never overflow their containers */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
   display: block;
-  margin: 0 auto 12px auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Style modal footer button for consistency */
-.modal-footer .btn {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 1.1em;
-  font-weight: bold;
-  border-radius: 6px;
-}
+/* =========================
+   ACCESSIBILITY ENHANCEMENTS
+   ========================= */
 
-/* Center the button in modal footers for beginners */
-.modal-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Make pillar section icons larger and headings use the header font */
-.card-title i {
-  font-size: 2em;              /* Larger icons */
-  vertical-align: middle;      /* Align icons with text */
-}
-
-.card-title {
-  font-family: 'Roboto', Arial, sans-serif; /* Use header font */
-  font-size: 1.5em;                        /* Larger heading */
-  font-weight: bold;
-}
-
-/* Add this to your style.css */
-section.container {
-  background: #f8fbfd;
-  border-radius: 12px;
-  padding: 32px 16px;
-  margin-bottom: 32px;
-}
-
-body, p, .card-text {
-  line-height: 1.7;
-}
-
+/* Make sure focus outlines are visible for keyboard users */
 button:focus, .btn:focus, input:focus {
   outline: 2px solid #00a9e0;
   outline-offset: 2px;
 }
 
-/* Center the modal header text for beginners */
+/* =========================
+   GENERAL ENHANCEMENTS
+   ========================= */
+
+/* Make sure all sections have enough space on all screens */
+section {
+  margin-bottom: 48px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure headings and text are readable on all backgrounds */
+h1, h2, h3, h4, p, .card-text, .timeline-details p {
+  word-break: break-word;
+}
+
+/* =========================
+   TIMELINE TYPOGRAPHY ENHANCEMENTS
+   ========================= */
+
+/* Make timeline years and event titles stand out */
+.timeline-card h3 {
+  font-family: 'Roboto', Arial, sans-serif; /* Use header font */
+  font-size: 1.5em;                        /* Larger for visibility */
+  color: var(--intel-blue);                 /* Intel blue for emphasis */
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 8px;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+}
+
+.timeline-card h4 {
+  font-family: 'Montserrat', Arial, sans-serif; /* Use main font */
+  font-size: 1.15em;                            /* Slightly larger */
+  color: var(--intel-dark-blue);
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Make timeline popup text easy to read */
+.timeline-details p {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.08em;
+  line-height: 1.7;
+  color: var(--intel-white);
+  margin: 0;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* Make sure timeline card text is readable */
+.timeline-card {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.08em;
+  color: var(--intel-dark-blue);
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* =========================
+   PILLARS & CARDS TYPOGRAPHY ENHANCEMENTS
+   ========================= */
+
+/* Pillar card titles: use header font, larger, bold, and centered */
+.card-title {
+  font-family: 'Roboto', Arial, sans-serif;   /* Use header font for emphasis */
+  font-size: 1.5em;                           /* Larger for visibility */
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+/* Pillar card icons: larger and aligned with text */
+.card-title i {
+  font-size: 2em;                             /* Make icons bigger */
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* Pillar card text: clear, readable, and centered */
+.card-text {
+  font-family: 'Montserrat', Arial, sans-serif; /* Use main font */
+  font-size: 1.08em;
+  color: var(--intel-dark-blue);
+  text-align: center;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+   PILLAR MODALS TYPOGRAPHY ENHANCEMENTS
+   ========================= */
+
+/* Modal titles: header font, larger, bold, and centered */
+.modal-title {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 1.6em;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  color: var(--intel-dark-blue);
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+/* Modal body text: main font, larger, readable, and centered */
+.modal-body p {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.15em;
+  line-height: 1.8;
+  color: var(--intel-dark-blue);
+  margin-top: 16px;
+  margin-bottom: 0;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* Modal icons: bigger and spaced out */
+.modal-body i {
+  display: block;
+  margin: 0 auto 18px auto;
+  font-size: 2.2em;
+}
+
+/* Modal footer button: match pillar button style */
+.modal-footer .btn {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.15em;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 10px 24px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* Enlarge the header to the pillar section and center modal buttons */
+
+/* Make the Pillar section header larger and bold, and center it */
+section.container.my-5 h2 {
+  font-size: 2.3em;                /* Larger font size for the header */
+  font-family: 'Roboto', Arial, sans-serif; /* Use header font */
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 28px;
+  letter-spacing: 1.5px;
+  color: var(--intel-dark-blue);
+  width: 100%;
+}
+
+/* Center the button in modal footers */
+.modal-footer {
+  display: flex;
+  justify-content: center;   /* Center horizontally */
+  align-items: center;       /* Center vertically */
+}
+
+/* Center the header in the modals and remove the "x" close button */
+
+/* Center the modal header text */
 .modal-header {
-  justify-content: center;      /* Center the header content horizontally */
-  text-align: center;           /* Center the text inside the header */
-  border-bottom: none;          /* Optional: remove bottom border for a cleaner look */
+  justify-content: center;    /* Center content horizontally */
+  text-align: center;         /* Center text inside the header */
+  border-bottom: none;        /* Optional: remove bottom border for a cleaner look */
 }
 
 /* Hide the close "x" button in the modal header */
 .modal-header .btn-close {
   display: none;
+}
+
+/* Adjust the padding in the modals for a cleaner look */
+
+/* Add more space around modal content */
+.modal-content {
+  padding: 24px 18px; /* Add padding inside the modal */
+  border-radius: 14px; /* Keep corners rounded */
+}
+
+/* Add extra space inside the modal body */
+.modal-body {
+  padding: 24px 12px; /* More space for text and icons */
+}
+
+/* Add space above and below the modal footer */
+.modal-footer {
+  padding-top: 18px;
+  padding-bottom: 18px;
 }

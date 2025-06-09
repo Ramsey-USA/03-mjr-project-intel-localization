@@ -1,0 +1,414 @@
+/* Import Montserrat for main text and Roboto for headers */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
+
+/* Intel color scheme variables and basic styles */
+:root {
+  --intel-blue: #0071c5;
+  --intel-light-blue: #00a9e0;
+  --intel-dark-blue: #003057;
+  --intel-gray: #e6e6e6;
+  --intel-white: #ffffff;
+
+  --font-main: 'Montserrat', Arial, sans-serif;      /* Use Montserrat for main text */
+  --font-header: 'Roboto', Arial, sans-serif;        /* Use Roboto for headers */
+
+  --font-size-base: 16px;
+  --font-size-large: 2.3em;      /* Slightly larger for main headings */
+  --font-size-medium: 1.25em;    /* Slightly larger for subheadings */
+  --font-size-small: 1em;
+
+  --margin-base: 20px;           /* More space between sections */
+  --margin-small: 10px;
+  --padding-base: 20px;          /* More padding for sections */
+  --padding-small: 10px;
+
+  --timeline-card-min-width: 250px;
+  --timeline-card-max-width: 300px;
+  --timeline-card-img-max-width: 220px;
+  --timeline-container-max-width: 1240px;
+  --timeline-gap: 56px;          /* More space between cards */
+  --timeline-padding-bottom: 32px;
+}
+
+/* Make the page always fill the screen vertically and prevent unwanted scrollbars */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll bar */
+  box-sizing: border-box; /* Include padding/border in width */
+}
+
+/* Use flexbox on the body to stretch content */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-main); /* Montserrat for all text by default */
+  font-size: var(--font-size-base);
+  background: linear-gradient(135deg, #e6e6e6 0%, #ffffff 100%);
+  color: var(--intel-dark-blue);
+  width: 100vw;        /* Always fit the viewport width */
+  max-width: 100vw;    /* Prevent content from exceeding viewport */
+  overflow-x: hidden;  /* Hide any accidental horizontal overflow */
+}
+
+/* Header styles */
+header {
+  background: linear-gradient(135deg, var(--intel-blue) 70%, var(--intel-light-blue) 100%);
+  color: var(--intel-white);
+  padding: 48px var(--padding-base) 28px var(--padding-base); /* Reduced for balance */
+  text-align: center;
+}
+
+/* Container to condense header text to 800px */
+.header-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--padding-small);
+}
+
+/* Intel logo in the header */
+header img {
+  width: 160px;
+  display: block;
+  margin: 0 auto var(--margin-base) auto;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Add a simple hover effect to the Intel logo image */
+header img:hover {
+  transform: scale(1.07) rotate(-2deg);
+  box-shadow: 0 8px 24px rgba(0, 49, 87, 0.15);
+}
+
+/* Main headline in the header */
+header h1 {
+  font-family: var(--font-header);      /* Roboto for header */
+  font-size: var(--font-size-large);
+  margin-bottom: var(--margin-small);
+  font-weight: bold;
+  letter-spacing: 2px;                  /* More spacing for a modern look */
+  text-transform: uppercase;            /* Uppercase for emphasis */
+}
+
+/* Divider line under the header content */
+.header-divider {
+  width: 80%;
+  max-width: 400px;
+  height: 3px;
+  background: var(--intel-light-blue);
+  margin: 28px auto 0 auto;
+  border-radius: 2px;
+  border: none;
+}
+
+/* Subheading/description in the header */
+header p {
+  font-size: var(--font-size-medium);
+  margin-bottom: 0;
+  margin-top: var(--margin-small);
+  font-family: var(--font-main); /* Montserrat for paragraph */
+  color: #e0f7fa;                /* Lighter color for contrast */
+  letter-spacing: 1px;
+}
+
+/* Timeline section styles */
+.timeline {
+  background-color: var(--intel-gray);
+  padding: 32px 20px 0 20px;
+  overflow-x: auto;      /* Allow horizontal scrolling if needed */
+  /* Do not hide overflow-y, so scrollbars show if needed */
+  flex: 1;
+  min-height: 0;
+  width: 100%;           /* Make sure it can expand */
+}
+
+/* Timeline cards container for horizontal scroll and smooth snapping */
+.timeline-cards {
+  display: flex;                  /* Arrange cards in a row */
+  flex-direction: row;            /* Horizontal layout */
+  gap: var(--timeline-gap);       /* Space between cards */
+  overflow-x: auto;               /* Enable horizontal scrolling */
+  overflow-y: visible;
+  padding: 36px 0 var(--timeline-padding-bottom) 0;
+  width: 100%;
+  max-width: var(--timeline-container-max-width);
+  margin: 0 auto;
+  box-sizing: border-box;
+  scroll-behavior: smooth;        /* Smooth scrolling */
+  scroll-snap-type: x mandatory;  /* Snap cards into place horizontally */
+}
+
+/* Style the horizontal scrollbar for timeline-cards */
+.timeline-cards::-webkit-scrollbar {
+  height: 10px; /* Make the scrollbar a bit thicker */
+  background: #e6e6e6; /* Light background for the track */
+  border-radius: 5px;  /* Rounded corners for the track */
+}
+
+/* Style the draggable part of the scrollbar */
+.timeline-cards::-webkit-scrollbar-thumb {
+  background: var(--intel-light-blue); /* Use an accent color */
+  border-radius: 5px;                  /* Rounded corners for the thumb */
+  border: 2px solid #e6e6e6;           /* Soft border for contrast */
+  transition: background 0.3s;
+}
+
+/* Change color when hovering over the scrollbar thumb */
+.timeline-cards::-webkit-scrollbar-thumb:hover {
+  background: var(--intel-blue);       /* Darker blue on hover */
+}
+
+/* For Firefox */
+.timeline-cards {
+  scrollbar-color: var(--intel-light-blue) #e6e6e6; /* thumb color, track color */
+  scrollbar-width: thin;                            /* Make it thinner */
+}
+
+/* Each timeline card will snap to the start of the container */
+.timeline-card {
+  min-width: var(--timeline-card-min-width);
+  max-width: var(--timeline-card-max-width);
+  flex-shrink: 0;                 /* Prevent cards from shrinking */
+  scroll-snap-align: start;       /* Snap each card to the start */
+  position: relative;
+  background-color: var(--intel-white);
+  border-left: 4px solid var(--intel-light-blue);
+  padding: 18px 22px 22px 22px;
+  margin-bottom: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+  cursor: pointer;
+  font-family: var(--font-main);
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0,49,87,0.10);
+  position: relative;   /* Already set, but important for stacking */
+  z-index: 1;           /* Default stacking */
+}
+
+/* Add hover effect to timeline cards */
+.timeline-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 49, 87, 0.15);
+  transform: translateY(-4px) scale(1.03);
+}
+
+/* Focus effect for timeline cards */
+.timeline-card:focus-within {
+  outline: 2px solid var(--intel-light-blue);
+  outline-offset: 4px;
+}
+
+/* Raise the card and overlay above others when hovered or focused */
+.timeline-card:hover,
+.timeline-card:focus-within {
+  z-index: 10;          /* Bring hovered card to the front */
+}
+
+/* Timeline images inside cards */
+.timeline-card img {
+  width: 100%;
+  max-width: var(--timeline-card-img-max-width);
+  display: block;
+  margin: 12px auto 16px auto;
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Timeline headings inside cards */
+.timeline-card h2,
+.timeline-card h3 {
+  font-family: var(--font-header); /* Roboto for headings in cards */
+}
+.timeline-card h2 {
+  color: var(--intel-light-blue);
+  font-size: 2em;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+.timeline-card h3 {
+  font-size: 1.3em;      /* Change this value to make the event title larger or smaller */
+  color: var(--intel-blue);
+  text-align: center;
+  margin-top: 0;      /* Remove space above h3 */
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+/* Hide details by default, show smoothly on hover */
+/* Make the timeline-details cover the entire card when displayed */
+/* Beginner-friendly: This overlay will cover the whole card with the info */
+.timeline-details {
+  position: absolute;
+  top: 0;                  /* Start at the very top of the card */
+  left: 0;                 /* Start at the very left of the card */
+  width: 100%;             /* Cover the full width of the card */
+  height: 100%;            /* Cover the full height of the card */
+  background: rgba(0, 49, 87, 0.92); /* Dark blue with transparency */
+  color: var(--intel-white);
+  padding: 24px 16px;      /* Padding for readability */
+  border-radius: 14px;     /* Match the card's rounded corners */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+  z-index: 2;
+  text-align: center;
+  overflow-y: auto;
+  font-family: var(--font-main);
+  font-size: 1em;
+  box-sizing: border-box;
+  display: flex;           /* Use flex to center content */
+  align-items: center;     /* Vertically center */
+  justify-content: center; /* Horizontally center */
+}
+
+/* Show overlay on hover or focus */
+.timeline-card:hover .timeline-details,
+.timeline-card:focus-within .timeline-details {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Responsive: Make sure overlay fits and is centered on small screens */
+@media (max-width: 700px) {
+  .timeline-details {
+    padding: 12px 4px;      /* Less padding on small screens */
+    font-size: 0.98em;      /* Slightly smaller text */
+    border-radius: 10px;    /* Slightly less rounding */
+    left: 0;                /* Always start at left edge */
+    width: 100%;            /* Always cover the card */
+    top: 0;                 /* Always start at top edge */
+    height: 100%;           /* Always cover the card */
+    align-items: center;    /* Vertically center */
+    justify-content: center;/* Horizontally center */
+    transform: none;        /* No shifting */
+  }
+}
+
+/* Timeline instructions under the timeline cards */
+.timeline-instructions {
+  text-align: center;
+  margin-top: 28px;
+  margin-bottom: 0;
+  font-size: 1.1em;
+  color: var(--intel-dark-blue);
+  background: transparent;
+  display: block;
+  font-weight: bold;
+  font-family: var(--font-header); /* Roboto for instructions */
+  letter-spacing: 1px;
+}
+
+/* Make sure .timeline-cards does not have too much bottom padding */
+.timeline-cards {
+  padding-bottom: 16px;
+  overflow-y: unset;
+}
+
+/* Style images inside the timeline section (not in cards) */
+.timeline img {
+  width: 100%;
+  max-width: var(--timeline-card-img-max-width);
+  display: block;
+  margin: 10px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Timeline section headings */
+.timeline h2 {
+  color: var(--intel-dark-blue);
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: var(--font-header); /* Roboto for section headings */
+}
+
+/* Timeline list styles (for alternate timeline layouts) */
+.timeline-list {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: var(--font-main); /* Montserrat for list text */
+}
+.timeline-list li {
+  background-color: var(--intel-white);
+  border-left: 4px solid var(--intel-light-blue);
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  position: relative;
+}
+.timeline-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Footer styles */
+footer {
+  background-color: var(--intel-dark-blue);
+  color: var(--intel-white);
+  text-align: center;
+  padding: 10px 0;
+  font-size: var(--font-size-small);
+  margin-top: 0;
+  font-family: var(--font-main); /* Montserrat for footer */
+  letter-spacing: 1px;
+  border-top: 2px solid #e6e6e6;
+}
+
+/* Responsive styles for tablets and phones */
+@media (max-width: 900px) {
+  .header-content {
+    max-width: 95%;
+    padding: 0 10px;
+  }
+  .timeline-cards {
+    gap: 20px;
+    max-width: 100%;
+  }
+  .timeline-card {
+    min-width: 220px;
+    max-width: 240px;
+    padding: 12px 10px 16px 10px;
+  }
+}
+
+/* On small screens, stack timeline cards vertically */
+@media (max-width: 700px) {
+  header {
+    padding: 28px var(--padding-small) 16px var(--padding-small);
+  }
+  .header-divider {
+    margin: 16px auto 0 auto;
+  }
+  .timeline {
+    padding: 12px 5px 0 5px;
+  }
+  .timeline-cards {
+    display: block;               /* Stack cards vertically */
+    overflow-x: visible;          /* No horizontal scroll */
+    gap: 0;
+    padding-bottom: 0;
+    scroll-snap-type: none;       /* Disable snapping on small screens */
+    max-width: 100%;
+  }
+  .timeline-card {
+    max-width: 100%;
+    min-width: 0;
+    margin-bottom: 16px;          /* Space between stacked cards */
+  }
+  .timeline-card:last-child {
+    margin-bottom: 0;
+  }
+  .timeline-details {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+  }
+}

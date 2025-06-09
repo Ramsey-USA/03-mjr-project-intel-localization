@@ -158,10 +158,10 @@
         <div class="card h-100 text-center shadow-sm w-100">
           <div class="card-body d-flex flex-column">
             <!-- Leaf icon for Environment -->
-            <h3 class="card-title mb-3">
-              <!-- Add a globe icon before the leaf icon for extra visual interest -->
-              <i class="bi bi-globe-americas me-2" style="color:#00a859;"></i>
-              <i class="bi bi-leaf-fill me-2" style="color:#00a859;"></i>
+            <h3 class="card-title mb-3" style="font-family: 'Roboto', Arial, sans-serif; font-size: 1.5em; font-weight: bold;">
+              <!-- Larger icons before the text for visual impact -->
+              <i class="bi bi-globe-americas me-2" style="color:#00a859; font-size:2em; vertical-align:middle;"></i>
+              <i class="bi bi-leaf-fill me-2" style="color:#00a859; font-size:2em; vertical-align:middle;"></i>
               Environment
             </h3>
             <p class="card-text">
@@ -183,8 +183,8 @@
         <div class="card h-100 text-center shadow-sm w-100">
           <div class="card-body d-flex flex-column">
             <!-- People icon for People -->
-            <h3 class="card-title mb-3">
-              <i class="bi bi-people-fill me-2" style="color:#f9a825;"></i>
+            <h3 class="card-title mb-3" style="font-family: 'Roboto', Arial, sans-serif; font-size: 1.5em; font-weight: bold;">
+              <i class="bi bi-people-fill me-2" style="color:#f9a825; font-size:2em; vertical-align:middle;"></i>
               People
             </h3>
             <p class="card-text">
@@ -206,8 +206,8 @@
         <div class="card h-100 text-center shadow-sm w-100">
           <div class="card-body d-flex flex-column">
             <!-- Lightbulb icon for Innovation -->
-            <h3 class="card-title mb-3">
-              <i class="bi bi-lightbulb-fill me-2" style="color:#00a9e0;"></i>
+            <h3 class="card-title mb-3" style="font-family: 'Roboto', Arial, sans-serif; font-size: 1.5em; font-weight: bold;">
+              <i class="bi bi-lightbulb-fill me-2" style="color:#00a9e0; font-size:2em; vertical-align:middle;"></i>
               Innovation
             </h3>
             <p class="card-text">
@@ -233,15 +233,25 @@
   <div class="modal fade" id="environmentModal" tabindex="-1" aria-labelledby="environmentModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
+        <!-- Modal header with icon and close button -->
         <div class="modal-header">
-          <h5 class="modal-title" id="environmentModalLabel">More About Environment</h5>
+          <h5 class="modal-title" id="environmentModalLabel">
+            <i class="bi bi-leaf-fill" style="color:#00a859; margin-right:8px;"></i>
+            More About Environment
+          </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          Intel is committed to reducing its environmental footprint by investing in renewable energy, water conservation, and waste reduction. These efforts help protect the planet for future generations.
+        <!-- Modal body with icon and clear text -->
+        <div class="modal-body" style="text-align:center;">
+          <i class="bi bi-recycle" style="color:#00a859; font-size:2em; margin-bottom:10px;"></i>
+          <p>
+            Intel is committed to reducing its environmental footprint by investing in renewable energy, water conservation, and waste reduction. These efforts help protect the planet for future generations.
+          </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            <i class="bi bi-x-circle"></i> Close
+          </button>
         </div>
       </div>
     </div>
@@ -251,14 +261,22 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="peopleModalLabel">More About People</h5>
+          <h5 class="modal-title" id="peopleModalLabel">
+            <i class="bi bi-people-fill" style="color:#f9a825; margin-right:8px;"></i>
+            More About People
+          </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          Intel supports its employees and communities by promoting diversity, equity, and inclusion. The company also invests in education and safety programs to make a positive impact.
+        <div class="modal-body" style="text-align:center;">
+          <i class="bi bi-heart-fill" style="color:#f9a825; font-size:2em; margin-bottom:10px;"></i>
+          <p>
+            Intel supports its employees and communities by promoting diversity, equity, and inclusion. The company also invests in education and safety programs to make a positive impact.
+          </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            <i class="bi bi-x-circle"></i> Close
+          </button>
         </div>
       </div>
     </div>
@@ -268,14 +286,22 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="innovationModalLabel">More About Innovation</h5>
+          <h5 class="modal-title" id="innovationModalLabel">
+            <i class="bi bi-lightbulb-fill" style="color:#00a9e0; margin-right:8px;"></i>
+            More About Innovation
+          </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          Innovation at Intel means creating new technologies and solutions that help solve global challenges. From microprocessors to AI, Intel is shaping a better future.
+        <div class="modal-body" style="text-align:center;">
+          <i class="bi bi-cpu-fill" style="color:#00a9e0; font-size:2em; margin-bottom:10px;"></i>
+          <p>
+            Innovation at Intel means creating new technologies and solutions that help solve global challenges. From microprocessors to AI, Intel is shaping a better future.
+          </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            <i class="bi bi-x-circle"></i> Close
+          </button>
         </div>
       </div>
     </div>

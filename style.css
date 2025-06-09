@@ -340,19 +340,12 @@ header p {
 /* =========================
    BUTTON STYLES & EFFECTS
    ========================= */
-
-/* All buttons: use the same font, size, and rounded corners for consistency */
+/* All buttons: smooth hover effect */
 button,
 .btn,
 input[type="submit"] {
-  font-family: 'Montserrat', Arial, sans-serif; /* Match all buttons */
-  font-weight: bold;
-  font-size: 1.1em;
-  border-radius: 6px;
   transition: background 0.2s, transform 0.2s;
 }
-
-/* Smooth hover effect for all buttons */
 button:hover,
 .btn:hover,
 input[type="submit"]:hover {
@@ -477,7 +470,7 @@ h4 {
 /* Add space below paragraphs for readability */
 p, .card-text, .timeline-details p {
   margin-bottom: 16px;
-  line-height: 1.6;
+  line-height: 1.7;
   font-size: 1.08em;
 }
 
@@ -497,4 +490,88 @@ p, .card-text, .timeline-details p {
 /* Add more space between timeline cards on large screens */
 .timeline-cards {
   gap: 64px;
+}
+
+/* Enhance modal typography for beginners */
+
+/* Make modal titles bold and larger */
+.modal-title {
+  font-family: 'Roboto', Arial, sans-serif; /* Use the header font */
+  font-size: 1.4em;                        /* Slightly larger for clarity */
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: var(--intel-dark-blue);
+}
+
+/* Style modal body text for readability */
+.modal-body p {
+  font-family: 'Montserrat', Arial, sans-serif; /* Match main font */
+  font-size: 1.08em;
+  line-height: 1.7;
+  color: var(--intel-dark-blue);
+  margin-top: 12px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+/* Make modal icons stand out with extra space */
+.modal-body i {
+  display: block;
+  margin: 0 auto 12px auto;
+}
+
+/* Style modal footer button for consistency */
+.modal-footer .btn {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.1em;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+/* Center the button in modal footers for beginners */
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Make pillar section icons larger and headings use the header font */
+.card-title i {
+  font-size: 2em;              /* Larger icons */
+  vertical-align: middle;      /* Align icons with text */
+}
+
+.card-title {
+  font-family: 'Roboto', Arial, sans-serif; /* Use header font */
+  font-size: 1.5em;                        /* Larger heading */
+  font-weight: bold;
+}
+
+/* Add this to your style.css */
+section.container {
+  background: #f8fbfd;
+  border-radius: 12px;
+  padding: 32px 16px;
+  margin-bottom: 32px;
+}
+
+body, p, .card-text {
+  line-height: 1.7;
+}
+
+button:focus, .btn:focus, input:focus {
+  outline: 2px solid #00a9e0;
+  outline-offset: 2px;
+}
+
+/* Center the modal header text for beginners */
+.modal-header {
+  justify-content: center;      /* Center the header content horizontally */
+  text-align: center;           /* Center the text inside the header */
+  border-bottom: none;          /* Optional: remove bottom border for a cleaner look */
+}
+
+/* Hide the close "x" button in the modal header */
+.modal-header .btn-close {
+  display: none;
 }

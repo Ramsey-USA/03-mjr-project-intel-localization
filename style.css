@@ -118,11 +118,8 @@ header p {
 .timeline {
   background-color: var(--intel-gray);
   padding: 32px 20px 0 20px;
-  overflow-x: auto;      /* Allow horizontal scrolling if needed */
-  /* Do not hide overflow-y, so scrollbars show if needed */
-  flex: 1;
-  min-height: 0;
-  width: 100%;           /* Make sure it can expand */
+  width: 100%;
+  /* No overflow-x here, let .timeline-cards handle scrolling */
 }
 
 /* Timeline cards container for horizontal scroll and smooth snapping */
@@ -187,8 +184,7 @@ header p {
   font-family: var(--font-main);
   border-radius: 14px;
   box-shadow: 0 4px 16px rgba(0,49,87,0.10);
-  position: relative;   /* Already set, but important for stacking */
-  z-index: 1;           /* Default stacking */
+  z-index: 1;
 }
 
 /* Add hover effect to timeline cards */
@@ -399,7 +395,7 @@ footer {
   .timeline-card {
     max-width: 100%;
     min-width: 0;
-    margin-bottom: 16px;          /* Space between stacked cards */
+    margin-bottom: 16px          /* Space between stacked cards */
   }
   .timeline-card:last-child {
     margin-bottom: 0;

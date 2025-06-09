@@ -6,6 +6,8 @@
   <title>Intel: Sustainability Through the Ages</title>
   <!-- Bootstrap RTL CSS for right-to-left layout -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons for easy icon usage -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <!-- Your own stylesheet (should come after Bootstrap so you can override styles) -->
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -26,11 +28,13 @@
 
   <!-- Timeline Section -->
   <section class="timeline">
+    <!-- Use a heading for the section -->
+    <h2 class="visually-hidden">Intel Timeline</h2>
     <div class="timeline-cards">
-      <!-- Repeat this block for each timeline event -->
-      <div class="timeline-card">
-        <h2>1968</h2>
-        <h3>Intel Founded</h3>
+      <!-- Each timeline event uses <article> for semantic meaning -->
+      <article class="timeline-card" tabindex="0">
+        <h3>1968</h3>
+        <h4>Intel Founded</h4>
         <img src="img/intel-founded.jpg" alt="Intel founders" />
         <div class="timeline-details">
           <p>
@@ -39,10 +43,10 @@
             decades of technological innovation.
           </p>
         </div>
-      </div>
-      <div class="timeline-card">
-        <h2>1971</h2>
-        <h3>First Microprocessor</h3>
+      </article>
+      <article class="timeline-card" tabindex="0">
+        <h3>1971</h3>
+        <h4>First Microprocessor</h4>
         <img src="img/first-microprocessor.jpg" alt="Intel 4004 Microprocessor" />
         <div class="timeline-details">
           <p>
@@ -51,10 +55,10 @@
             of computing devices.
           </p>
         </div>
-      </div>
-      <div class="timeline-card">
-        <h2>1978</h2>
-        <h3>8086 Processor</h3>
+      </article>
+      <article class="timeline-card" tabindex="0">
+        <h3>1978</h3>
+        <h4>8086 Processor</h4>
         <img src="img/8086-processor.jpg" alt="Intel 8086 Processor" />
         <div class="timeline-details">
           <p>
@@ -62,10 +66,10 @@
             that drives countless PCs and servers in the modern era.
           </p>
         </div>
-      </div>
-      <div class="timeline-card">
-        <h2>1985</h2>
-        <h3>386 Processor</h3>
+      </article>
+      <article class="timeline-card" tabindex="0">
+        <h3>1985</h3>
+        <h4>386 Processor</h4>
         <img src="img/386-processor.jpg" alt="Intel 386 Processor" />
         <div class="timeline-details">
           <p>
@@ -74,10 +78,10 @@
             personal computers.
           </p>
         </div>
-      </div>
-      <div class="timeline-card">
-        <h2>2006</h2>
-        <h3>Peak GHG Emissions</h3>
+      </article>
+      <article class="timeline-card" tabindex="0">
+        <h3>2006</h3>
+        <h4>Peak GHG Emissions</h4>
         <img src="img/peak-ghg-emissions.jpg" alt="GHG Emissions" />
         <div class="timeline-details">
           <p>
@@ -87,10 +91,10 @@
             manufacturing to reverse this trend.
           </p>
         </div>
-      </div>
-      <div class="timeline-card">
-        <h2>2020</h2>
-        <h3>RISE Strategy</h3>
+      </article>
+      <article class="timeline-card" tabindex="0">
+        <h3>2020</h3>
+        <h4>RISE Strategy</h4>
         <img src="img/rise-intel.jpg" alt="RISE Strategy" />
         <div class="timeline-details">
           <p>
@@ -99,10 +103,10 @@
             progress on climate action, water stewardship, and waste reduction.
           </p>
         </div>
-      </div>
-      <div class="timeline-card">
-        <h2>2022</h2>
-        <h3>Net-Zero By 2040</h3>
+      </article>
+      <article class="timeline-card" tabindex="0">
+        <h3>2022</h3>
+        <h4>Net-Zero By 2040</h4>
         <img src="img/net-zero-emissions.jpg" alt="Net-Zero Announcement" />
         <div class="timeline-details">
           <p>
@@ -111,10 +115,10 @@
             by 2040, building on years of environmental initiatives.
           </p>
         </div>
-      </div>
-      <div class="timeline-card">
-        <h2>2023</h2>
-        <h3>Renewable Electricity</h3>
+      </article>
+      <article class="timeline-card" tabindex="0">
+        <h3>2023</h3>
+        <h4>Renewable Electricity</h4>
         <img src="img/renewable-electricity.jpg" alt="Renewable Electricity" />
         <div class="timeline-details">
           <p>
@@ -123,10 +127,10 @@
             toward Intel's long-term sustainability goals.
           </p>
         </div>
-      </div>
-      <div class="timeline-card">
-        <h2>2024</h2>
-        <h3>Sustainability Summit</h3>
+      </article>
+      <article class="timeline-card" tabindex="0">
+        <h3>2024</h3>
+        <h4>Sustainability Summit</h4>
         <img src="img/sustainability-summit.jpg" alt="Sustainability Summit" />
         <div class="timeline-details">
           <p>
@@ -135,7 +139,7 @@
             next-generation sustainable semiconductor manufacturing.
           </p>
         </div>
-      </div>
+      </article>
     </div>
     <p class="timeline-instructions">Scroll to view timeline | Hover over cards to learn more!</p>
   </section>
@@ -143,82 +147,188 @@
   <!-- Three Column Section: Intel Sustainability Pillars -->
   <!-- This section uses Bootstrap's grid system for a simple, responsive layout -->
   <section class="container my-5">
-    <!-- Section heading -->
+    <!-- Section heading with a globe icon -->
     <h2 class="text-center mb-4">
-      <!-- Bootstrap icon for globe -->
-      <span class="me-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#0071c5" class="bi bi-globe" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 0 16 0A8 8 0 0 0 0 8zm8-7a7 7 0 0 1 6.468 4.5H9.5a13.5 13.5 0 0 0-1-2.5A13.5 13.5 0 0 0 8 1zm6.93 5.5A7 7 0 0 1 8 15a7 7 0 0 1-6.93-6.5h3.356a13.5 13.5 0 0 0 1 2.5A13.5 13.5 0 0 0 8 15a13.5 13.5 0 0 0 1-2.5h3.356zM1.07 6.5A7 7 0 0 1 8 1a7 7 0 0 1 6.93 5.5H12.5a13.5 13.5 0 0 0-1-2.5A13.5 13.5 0 0 0 8 1a13.5 13.5 0 0 0-1 2.5H1.07z"/></svg></span>
+      <i class="bi bi-globe2 me-2" style="color:#0071c5; font-size:1.4em;"></i>
       Intel Sustainability Pillars
     </h2>
-    <!-- Bootstrap row for three columns -->
     <div class="row">
       <!-- First column -->
-      <div class="col-md-4 mb-4">
-        <div class="card h-100 text-center shadow-sm">
-          <div class="card-body">
-            <!-- Icon in heading (leaf) -->
+      <div class="col-md-4 mb-4 d-flex">
+        <div class="card h-100 text-center shadow-sm w-100">
+          <div class="card-body d-flex flex-column">
+            <!-- Leaf icon for Environment -->
             <h3 class="card-title mb-3">
-              <span class="me-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#00a859" class="bi bi-leaf" viewBox="0 0 16 16"><path d="M13.964 1.686a.5.5 0 0 1 .07.706C12.684 4.06 10.5 7.5 10.5 10.5c0 2.485-2.015 4.5-4.5 4.5S1.5 12.985 1.5 10.5c0-3.5 4.5-8 11.964-8.814z"/></svg></span>
+              <!-- Add a globe icon before the leaf icon for extra visual interest -->
+              <i class="bi bi-globe-americas me-2" style="color:#00a859;"></i>
+              <i class="bi bi-leaf-fill me-2" style="color:#00a859;"></i>
               Environment
             </h3>
             <p class="card-text">
+              <i class="bi bi-recycle me-1" style="color:#00a859;"></i>
               Intel works to reduce its environmental impact by saving energy, using renewable resources, and minimizing waste in all operations.
             </p>
-            <!-- Learn More button -->
-            <a href="#" class="btn btn-primary mt-2" style="background-color:#0071c5; border:none;">
-              Learn More
-            </a>
+            <!-- Align button at the bottom -->
+            <div class="mt-auto">
+              <button type="button" class="btn btn-primary mt-2 w-100" style="background-color:#0071c5; border:none;" data-bs-toggle="modal" data-bs-target="#environmentModal">
+                <i class="bi bi-info-circle me-1"></i>
+                Learn More
+              </button>
+            </div>
           </div>
         </div>
       </div>
       <!-- Second column -->
-      <div class="col-md-4 mb-4">
-        <div class="card h-100 text-center shadow-sm">
-          <div class="card-body">
-            <!-- Icon in heading (people) -->
+      <div class="col-md-4 mb-4 d-flex">
+        <div class="card h-100 text-center shadow-sm w-100">
+          <div class="card-body d-flex flex-column">
+            <!-- People icon for People -->
             <h3 class="card-title mb-3">
-              <span class="me-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#f9a825" class="bi bi-people" viewBox="0 0 16 16"><path d="M13 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm8 6c0-1.5-3-2.5-6-2.5S2 12.5 2 14v1h12v-1z"/></svg></span>
+              <i class="bi bi-people-fill me-2" style="color:#f9a825;"></i>
               People
             </h3>
             <p class="card-text">
+              <i class="bi bi-heart-fill me-1" style="color:#f9a825;"></i>
               Intel values diversity, inclusion, and safety, supporting employees and communities to create a positive social impact.
             </p>
-            <!-- Learn More button -->
-            <a href="#" class="btn btn-primary mt-2" style="background-color:#0071c5; border:none;">
-              Learn More
-            </a>
+            <!-- Align button at the bottom -->
+            <div class="mt-auto">
+              <button type="button" class="btn btn-primary mt-2 w-100" style="background-color:#0071c5; border:none;" data-bs-toggle="modal" data-bs-target="#peopleModal">
+                <i class="bi bi-info-circle me-1"></i>
+                Learn More
+              </button>
+            </div>
           </div>
         </div>
       </div>
       <!-- Third column -->
-      <div class="col-md-4 mb-4">
-        <div class="card h-100 text-center shadow-sm">
-          <div class="card-body">
-            <!-- Icon in heading (lightbulb) -->
+      <div class="col-md-4 mb-4 d-flex">
+        <div class="card h-100 text-center shadow-sm w-100">
+          <div class="card-body d-flex flex-column">
+            <!-- Lightbulb icon for Innovation -->
             <h3 class="card-title mb-3">
-              <span class="me-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#00a9e0" class="bi bi-lightbulb" viewBox="0 0 16 16"><path d="M2 6a6 6 0 1 1 12 0c0 2.577-1.613 4.773-4 5.478V13a1 1 0 0 1-2 0v-1.522C3.613 10.773 2 8.577 2 6zm6-5a5 5 0 0 0-5 5c0 2.21 1.387 4.09 3.5 4.813V13a.5.5 0 0 0 1 0v-1.187C11.613 10.09 13 8.21 13 6a5 5 0 0 0-5-5z"/></svg></span>
+              <i class="bi bi-lightbulb-fill me-2" style="color:#00a9e0;"></i>
               Innovation
             </h3>
             <p class="card-text">
+              <i class="bi bi-cpu-fill me-1" style="color:#00a9e0;"></i>
               Intel drives innovation by creating new technologies and solutions that help solve global challenges and improve lives.
             </p>
-            <!-- Learn More button -->
-            <a href="#" class="btn btn-primary mt-2" style="background-color:#0071c5; border:none;">
-              Learn More
-            </a>
+            <!-- Align button at the bottom -->
+            <div class="mt-auto">
+              <button type="button" class="btn btn-primary mt-2 w-100" style="background-color:#0071c5; border:none;" data-bs-toggle="modal" data-bs-target="#innovationModal">
+                <i class="bi bi-info-circle me-1"></i>
+                Learn More
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
   <!-- End of Three Column Section -->
+
+  <!-- Bootstrap Modals for each pillar -->
+  <!-- Environment Modal -->
+  <div class="modal fade" id="environmentModal" tabindex="-1" aria-labelledby="environmentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="environmentModalLabel">More About Environment</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Intel is committed to reducing its environmental footprint by investing in renewable energy, water conservation, and waste reduction. These efforts help protect the planet for future generations.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- People Modal -->
+  <div class="modal fade" id="peopleModal" tabindex="-1" aria-labelledby="peopleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="peopleModalLabel">More About People</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Intel supports its employees and communities by promoting diversity, equity, and inclusion. The company also invests in education and safety programs to make a positive impact.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Innovation Modal -->
+  <div class="modal fade" id="innovationModal" tabindex="-1" aria-labelledby="innovationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="innovationModalLabel">More About Innovation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Innovation at Intel means creating new technologies and solutions that help solve global challenges. From microprocessors to AI, Intel is shaping a better future.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End of Modals -->
+
+  <!-- Subscription Form Section -->
+<section class="container my-5">
+  <!-- Section heading -->
+  <h2 class="text-center mb-4" style="font-family: 'Roboto', Arial, sans-serif;">
+    Stay Updated
+  </h2>
+  <!-- Simple subscription form for beginners -->
+  <form class="subscription-form mx-auto" style="max-width: 400px;">
+    <!-- Email label and input -->
+    <div class="mb-3">
+      <label for="subscribe-email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="subscribe-email" placeholder="Enter your email" required>
+    </div>
+    <!-- Subscribe button with icon -->
+    <div class="d-grid">
+      <button type="submit" class="btn btn-primary subscribe-btn" style="background-color:#0071c5; border:none; font-family: 'Montserrat', Arial, sans-serif; font-weight: bold;">
+        <i class="bi bi-envelope-fill me-1"></i>
+        Subscribe
+      </button>
+    </div>
+  </form>
+</section>
+
   <!-- Footer Section -->
   <footer>
-    <p>By Matthew Ramsey &copy; 2025 Intel Sustainability Project. For learning purposes only.</p>
+    <!-- Simple, beginner-friendly footer -->
+    <p>&copy; 2025 Intel Sustainability Project</p>
   </footer>
   <!-- End of main content -->
 
   <!-- (Optional) Bootstrap JS for interactive components -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Simple JavaScript to set RTL or LTR based on language -->
+<script>
+  // List of RTL language codes
+  var rtlLanguages = ['ar', 'he', 'fa', 'ur'];
+
+  // Get the <html> element and its lang attribute
+  var htmlTag = document.documentElement;
+  var lang = htmlTag.getAttribute('lang');
+
+  // If the language is RTL, set dir="rtl", else dir="ltr"
+  if (rtlLanguages.includes(lang)) {
+    htmlTag.setAttribute('dir', 'rtl');
+  } else {
+    htmlTag.setAttribute('dir', 'ltr');
+  }
+</script>
 </body>
-<!-- End of HTML document -->
 </html>
